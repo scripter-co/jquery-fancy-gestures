@@ -102,8 +102,8 @@ THE SOFTWARE.
 			graphics.clear();
 			graphics.paint();
 
-            var pageX = (e.clientX || e.originalEvent.targetTouches[0].clientX);
-            var pageY = (e.clientY || e.originalEvent.targetTouches[0].clientY);
+			var pageX = (e.clientX || e.originalEvent.targetTouches[0].clientX);
+			var pageY = (e.clientY || e.originalEvent.targetTouches[0].clientY);
 
 			lastPositionX = pageX-position.left;
 			lastPositionY = pageY-position.top;	
@@ -112,8 +112,8 @@ THE SOFTWARE.
 		$(element).bind('mousemove touchmove', function(e) {
 			if(recording == true) {
 			
-                var pageX = (e.clientX || e.originalEvent.targetTouches[0].clientX);
-                var pageY = (e.clientY || e.originalEvent.targetTouches[0].clientY);
+				var pageX = (e.clientX || e.originalEvent.targetTouches[0].clientX);
+				var pageY = (e.clientY || e.originalEvent.targetTouches[0].clientY);
 			
 				var msx = (pageX-position.left);
 				var msy = (pageY-position.top);
