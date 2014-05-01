@@ -47,7 +47,7 @@ a {
 
 <p>Please use your mouse to draw a letter (e.g. E) in the box below. (To draw: Click and then drag your mouse)</p>
 </div>
-<div id="sample" style="border:1px solid black;position:relative;height:150px;width:150px;float:left"></div><div style="float:left"><img src="letters.jpg"></div>
+<div id="sample" style="border:1px solid black;position:relative;height:300px;width:300px;float:left"></div><div style="float:left"><img src="letters.jpg"></div>
 <br clear="all"/><br/><br/>
 <div id="outputbox" style="padding-top:40px;">
 
@@ -66,7 +66,9 @@ $(document).ready(function () {
 		document.getElementById('outputbox').innerHTML += data;	
 	});
 });
-
+document.body.addEventListener('touchmove',function(event){
+  event.preventDefault();
+}, false);
 </script>
 
 </body>

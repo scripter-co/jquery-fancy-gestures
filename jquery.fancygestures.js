@@ -96,19 +96,27 @@ THE SOFTWARE.
 
 		initialize();
 
-		$(element).mousedown(function(event) {
+		$(element).bind('mousedown touchstart', function(e) {
+
 			recording = true;
 			graphics.clear();
 			graphics.paint();
 
-			lastPositionX = event.clientX-position.left;
-			lastPositionY = event.clientY-position.top;	
+            var pageX = (e.clientX || e.originalEvent.targetTouches[0].clientX);
+            var pageY = (e.clientY || e.originalEvent.targetTouches[0].clientY);
+
+			lastPositionX = pageX-position.left;
+			lastPositionY = pageY-position.top;	
 		});
 
-		$(element).mousemove(function(event) {
+		$(element).bind('mousemove touchmove', function(e) {
 			if(recording == true) {
-				var msx = (event.clientX-position.left);
-				var msy = (event.clientY-position.top);
+			
+                var pageX = (e.clientX || e.originalEvent.targetTouches[0].clientX);
+                var pageY = (e.clientY || e.originalEvent.targetTouches[0].clientY);
+			
+				var msx = (pageX-position.left);
+				var msy = (pageY-position.top);
 				
 				var difx = (msx-lastPositionX);
 				var dify = (msy-lastPositionY);
@@ -128,7 +136,7 @@ THE SOFTWARE.
 			}
 		});
 
-		$(element).mouseup(function(e) {
+		$(element).bind('mouseup touchend', function(e) {
 			recording = false;
 			result = 100000;
 			letter = '';
@@ -148,6 +156,7 @@ THE SOFTWARE.
 			moves = new Array(0);
 			lastPositionX = 0;
 			lastPositionY = 0;
+			
 		});
 
 
